@@ -19,11 +19,13 @@ from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.routers import DefaultRouter
 from academics.views import ClassroomViewSet, SubjectViewSet
+from students.views import StudentViewSet
 
 # Define the router and register your viewsets here
 router = DefaultRouter()
 router.register(r'classrooms', ClassroomViewSet)
 router.register(r'subjects', SubjectViewSet)
+router.register(r'students', StudentViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
