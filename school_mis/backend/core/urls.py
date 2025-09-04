@@ -27,6 +27,7 @@ router.register(r'classrooms', ClassroomViewSet)
 router.register(r'subjects', SubjectViewSet)
 router.register(r'students', StudentViewSet)
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -36,5 +37,7 @@ urlpatterns = [
     #Authentication endpoints can be added here
     path('api/accounts/', include('accounts.urls')),
     #extend the router;
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+
+    path('api/attendance/', include('attendance.urls')),  
 ]
