@@ -1,0 +1,14 @@
+#migrations
+migrations
+
+#pycache
+__pycache__
+
+#virtual environment
+/thread
+
+#environmental variables
+.env
+
+#database
+db.sqlite3
