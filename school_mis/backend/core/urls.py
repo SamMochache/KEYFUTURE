@@ -17,6 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from rest_framework.routers import DefaultRouter
+from academics.views import ClassroomViewSet, SubjectViewSet
+
+# Define the router and register your viewsets here
+router = DefaultRouter()
+router.register(r'classrooms', ClassroomViewSet)
+router.register(r'subjects', SubjectViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +33,6 @@ urlpatterns = [
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     #Authentication endpoints can be added here
     path('api/accounts/', include('accounts.urls')),
+    #extend the router;
+    path('api/', include(router.urls))
 ]

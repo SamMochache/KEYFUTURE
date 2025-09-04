@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_filters',
     #local apps
     'accounts',
+    'academics',
 ]
 
 MIDDLEWARE = [
