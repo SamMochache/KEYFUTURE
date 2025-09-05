@@ -20,13 +20,22 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.routers import DefaultRouter
 from academics.views import ClassroomViewSet, SubjectViewSet
 from students.views import StudentViewSet
-
+from exams.views import ExamViewSet, GradeEntryViewSet
+from fees.views import FeeCategoryViewSet, InvoiceViewSet, PaymentViewSet
+from calendarapp.views import EventViewSet
+from comms.views import MessageViewSet
 # Define the router and register your viewsets here
 router = DefaultRouter()
 router.register(r'classrooms', ClassroomViewSet)
 router.register(r'subjects', SubjectViewSet)
+router.register(r'exams', ExamViewSet)
+router.register(r'grades', GradeEntryViewSet)
 router.register(r'students', StudentViewSet)
-
+router.register(r'fees-categories', FeeCategoryViewSet)
+router.register(r'invoices', InvoiceViewSet)
+router.register(r'payments', PaymentViewSet)
+router.register(r'events', EventViewSet)
+router.register(r'messages', MessageViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
