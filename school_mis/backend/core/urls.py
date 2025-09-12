@@ -24,6 +24,8 @@ from exams.views import ExamViewSet, GradeEntryViewSet
 from fees.views import FeeCategoryViewSet, InvoiceViewSet, PaymentViewSet
 from calendarapp.views import EventViewSet
 from comms.views import MessageViewSet
+from reports.views import student_report, attendance_report, fee_report
+
 # Define the router and register your viewsets here
 router = DefaultRouter()
 router.register(r'classrooms', ClassroomViewSet)
@@ -49,4 +51,8 @@ urlpatterns = [
     path('api/', include(router.urls)),
 
     path('api/attendance/', include('attendance.urls')),  
+
+    path('api/reports/student/<int:student>/performance/', student_report, name='student_report'),
+    path('api/reports/student/<int:student>/attendance/', attendance_report, name='attendance_report'),
+    path('api/reports/student/<int:student>/fees/', fee_report, name='fee_report'),
 ]
